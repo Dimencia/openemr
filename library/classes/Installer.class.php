@@ -191,7 +191,7 @@ class Installer
 
     public function create_database()
     {
-        $sql = "create database " . $this->escapeDatabaseName($this->dbname);
+        $sql = "create database if not exists " . $this->escapeDatabaseName($this->dbname);
         if (empty($this->collate) || ($this->collate == 'utf8_general_ci')) {
             $this->collate = 'utf8mb4_general_ci';
         }
